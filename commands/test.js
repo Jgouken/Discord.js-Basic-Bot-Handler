@@ -1,5 +1,5 @@
 module.exports = {
-    name: `test`, // Name of command should be the name of the file
+    name: `test`, // Lowercase is preferable; Spaces seem to not work; this name is what you type in chat: Ex. !test
 
     execute(message, args, config, client) { // parameters set in index
         message.react('👍')
