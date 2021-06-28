@@ -11,21 +11,16 @@ for (const file of commandFiles) {
 }
 
 bot.on('ready', async () => {
-    setTimeout(() => {
-      // This repeats every set time
-      bot.user.setPresence({
-        status: 'online',
-        // online, offline, dnd, idle
-        activity: {
-          name: `${bot.guilds.cache.size} servers! | ${config.prefix}test`,
-          type: 'WATCHING',
-          // LISTENING, WATCHING, PLAYING, STREAMING, and COMPETING
-        }
-      })
-    }, 30 * 1000)
-    // x * 1000 are seconds
-  
-    console.log('\n\nBOT IS RUNNING!\n\n');
+  console.log(`\n\n${config.name} IS ONLINE!\n\n`);
+  bot.user.setPresence({
+    status: 'online',
+          // online, offline, dnd, idle
+    activity: {
+      name: `${config.prefix}test`,
+      type: 'WATCHING',
+          // LISTENING (to), WATCHING, PLAYING, STREAMING, COMPETING (in)
+    }
+  })
   
     bot.on('message', async message => {
         if (message.author.bot) return;
@@ -33,16 +28,13 @@ bot.on('ready', async () => {
         if (!message.content.toLocaleLowerCase().startsWith(config.prefix)) return;
         if (!(message.guild.me).hasPermission("SEND_MESSAGES")) return;
 
-        const input = message.content.slice(config.prefix.length).trim()
-        if (!input.length) return; // If the message is just the prefix
-
         const [, command, commandArgs] = input.match(/(\w+)\s*([\s\S]*)/); // Declares the name of the command and the arguments given
-        if (bot.commands.get(command)) called.execute(message, commandArgs, config, bot) // If the command exists, execute it.
+        if (bot.commands.get(command)) called.execute(message, commandArgs, config, bot) // If the command exists, execute it with the following parameters.
 
-        // Want to try the test command? Make sure you set up the config.js file and the package.json file.
-        // Currently, the only command is "test" and the prefix is defaulted to !
+        // Want to try the test command?
+        // Make sure you set up the config.js file and the package.json file.
         // In a server with your bot, type !test to execute the test file!
-        // What should happen is the bot should add a 👍 reaction to your message.
+        // Your bot should respond to the message and give it a thumbs up.
         // If that doesn't happen, check in the console for any error messages.
     })
 })
