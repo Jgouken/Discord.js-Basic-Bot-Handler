@@ -1,18 +1,28 @@
 module.exports = {
-    name: `test`, // Lowercase is preferable; Spaces seem to not work; this name is what you type in chat: Ex. !test
+    name: `test`,
+    // Lowercase is preferable; Spaces aren't read; Ex. !test
 
-    execute(message, args, config, client) { // parameters set in index
+    execute(message, args, config, client) {
+        // parameters set in index.js
+        message.channel.send(`Hello world and and all who inhabit it!`)
         message.react('👍')
-        // Any code to do! Check config.js for all configurations
 
-        // To create new commands:
-        // add a new file
-        // copy what is here into there
-        // Duplicate names may cause problems.
+        /*
+        Any code to do!
 
-        // "message" defines the message as a whole, including author, channel, guild and otherwise
-        // "args" is the arguments of the message; For example: anything after !test
-        // "config" accesses all variables in the config file (defaulted Discord, bot, TOKEN, and prefix)
-        // "client" is the bot client.
+        Create a new command:
+        - Add a new file (name it whatever you want).
+        - Create a new module.exports like this.
+        - Duplicate names may cause problems.
+
+        Parameters:
+        - "message" https://discord.js.org/#/docs/main/stable/class/Message
+        - "args" is the arguments of the message; Ex.: '!test This works' --> 'This works'
+        - "config" accesses all variables in the config file (defaulted Discord, bot, TOKEN, and prefix)
+        - "client" is the bot client.
+
+        - Any added parameters must be set in index.js in identical order.
+        - The parameters above work as constants; All their names can be changed with the same properties.
+        */
     }
 }
