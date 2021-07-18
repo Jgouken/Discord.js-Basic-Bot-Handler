@@ -28,7 +28,8 @@ bot.on('ready', async () => {
         if (!message.content.toLocaleLowerCase().startsWith(config.prefix)) return;
         if (!(message.guild.me).hasPermission("SEND_MESSAGES")) return;
 
-        const [, command, commandArgs] = input.match(/(\w+)\s*([\s\S]*)/); // Declares the name of the command and the arguments given
+        const commandArgs = message.content.slice(prefix.length).trim().split(/ +/);
+	      const command = args.shift().toLowerCase(); // Declares the name of the command and the arguments given
         if (bot.commands.get(command)) called.execute(message, commandArgs, config, bot) // If the command exists, execute it with the following parameters.
 
         // Want to try the test command?
