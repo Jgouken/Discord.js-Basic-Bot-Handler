@@ -25,12 +25,13 @@ bot.on('ready', async () => {
     bot.on('message', async message => {
         if (message.author.bot) return;
         if (message.channel.type == 'dm') return;
-        if (!message.content.toLocaleLowerCase().startsWith(config.prefix)) return;
+        if (!message.content.toLocaleLowerCase().startsWith(config.prefix.toLocaleLowerCase())) return; // Remove .toLocaleLowerCase() to make the prefix case-sensitive.
         if (!(message.guild.me).hasPermission("SEND_MESSAGES")) return;
 
-        const commandArgs = message.content.slice(prefix.length).trim().split(/ +/);
-	      const command = args.shift().toLowerCase(); // Declares the name of the command and the arguments given
-        if (bot.commands.get(command)) called.execute(message, commandArgs, config, bot) // If the command exists, execute it with the following parameters.
+        const commandArgs = message.content.slice(config.prefix.length).trim().split(/ +/);
+	      const command = commandArgs.shift().toLowerCase(); // Declares the name of the command and the arguments given
+        const called = bot.commands.get(command)
+        if (called) called.execute(message, commandArgs, config, bot) // If the command exists, execute it with the following parameters.
 
         // Want to try the test command?
         // Make sure you set up the config.js file and the package.json file.
