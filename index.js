@@ -12,15 +12,8 @@ for (const file of commandFiles) {
 
 bot.on('ready', async () => {
   console.log(`\n\n${config.name} IS ONLINE!\n\n`);
-  bot.user.setPresence({
-    status: 'online',
-          // online, offline, dnd, idle
-    activity: {
-      name: `${config.prefix}test`,
-      type: 'WATCHING',
-          // LISTENING, WATCHING, PLAYING, STREAMING, COMPETING (in)
-    }
-  })
+  bot.user.setActivity(`${config.prefix}help`, { type: "WATCHING"})
+	// LISTENING, WATCHING, PLAYING, STREAMING, COMPETING
   
     bot.on('messageCreate', async message => {
         if (message.author.bot) return;
