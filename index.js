@@ -18,15 +18,15 @@ bot.on('ready', async () => {
     activity: {
       name: `${config.prefix}test`,
       type: 'WATCHING',
-          // LISTENING (to), WATCHING, PLAYING, STREAMING, COMPETING (in)
+          // LISTENING, WATCHING, PLAYING, STREAMING, COMPETING (in)
     }
   })
   
-    bot.on('message', async message => {
+    bot.on('messageCreate', async message => {
         if (message.author.bot) return;
         if (message.channel.type == 'dm') return;
         if (!message.content.toLocaleLowerCase().startsWith(config.prefix.toLocaleLowerCase())) return; // Remove .toLocaleLowerCase() to make the prefix case-sensitive.
-        if (!(message.guild.me).hasPermission("SEND_MESSAGES")) return;
+        if (!(message.guild.me).permissions.has("SEND_MESSAGES")) return;
 
         const commandArgs = message.content.slice(config.prefix.length).trim().split(/ +/);
 	      const command = commandArgs.shift().toLowerCase(); // Declares the name of the command and the arguments given
