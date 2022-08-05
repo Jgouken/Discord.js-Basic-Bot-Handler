@@ -23,7 +23,7 @@ module.exports = {
         Parameters:
         - "message" https://discord.js.org/#/docs/main/stable/class/Message
         - "args" is the arguments of the message; Ex.: '!test This works' --> 'This works'
-        - "config" accesses all variables in the config file (defaulted Discord, bot, TOKEN, and prefix)
+        - "config" accesses all variables in the config file.
         - "client" is the bot's client.
 
         - Any added parameters must be set in index.js in an identical order. Execute parameters must be the same in all files.

@@ -10,6 +10,10 @@
   "keywords": [],
   "author": "NAME",
   "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^1.0.1",
+    "discord.js": "^14.1.2"
+  },
 
-  "_comment": "IF THIS IS PART OF A REPOSITORY, DELETE THIS FILE & OPEN THIS REPO WITH GITHUB DESKTOP AND CREATE A PACKAGE.JSON USING $ npm init IN THE TERMINAL"
+  "_comment": "INSTALL/UPDATE PACKAGES USING $ npm i (package name). MOST OF THE TIME, THIS IS NOT HANDLED AUTOMATICALLY"
 }
