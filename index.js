@@ -25,7 +25,7 @@ for (const file of commandFiles) {
   const command = require(filePath);
   // Gets the command
 
-  client.commands.set(command.data.name, command);
+  client.commands.set(command.name, command);
   // For each file, the file is retrieved and put in the "client.commands" collection under the command's name.
   // In this instance, the key is the command's name, and the value is the command file entirely.
 }

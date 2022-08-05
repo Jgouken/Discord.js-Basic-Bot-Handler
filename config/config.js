@@ -1,6 +1,5 @@
 // ALL OF THE FOLLOWING PACKAGES NEED TO BE INSTALLED.
 // Some services do this automatically, otherwise you must use 'npm install' in your terminal.
-
 const { Client, GatewayIntentBits } = require('discord.js');
 // It declares the necessary variables for discord.js
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
