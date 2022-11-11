@@ -17,7 +17,7 @@ module.exports = {
 
         /*
             Delete a Slash Command: Follow the guide linked below. It's a slow process, but it works!
-            https://discordjs.guide/creating-your-bot/deleting-commands.html#deleting-specific-commands
+            https://discordjs.guide/slash-commands/deleting-commands.html#deleting-specific-commands
 
             Want Global Slash Commands? Change line 13 to the following
             await rest.put(Routes.applicationCommands(clientId), body: sCommands.map(command => command.toJSON() });
